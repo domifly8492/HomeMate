@@ -1,0 +1,38 @@
+menu "HomeMate Network"
+
+    config HM_WIFI_SSID
+        string "WiFi SSID"
+        default "KK'house"
+        help
+            要连接的 Wi-Fi 名称（2.4GHz）。
+
+    config HM_WIFI_PASSWORD
+        string "WiFi Password"
+        default "13567283451"
+        help
+            Wi-Fi 密码。
+
+    config HM_TZ
+        string "POSIX timezone"
+        default "CST-8"
+        help
+            时区。UTC+8 写 CST-8，UTC+9 写 JST-9。
+
+    config HM_NTP_SERVER
+        string "NTP server"
+        default "ntp.aliyun.com"
+        help
+            网络对时服务器，连不上可以换 pool.ntp.org。
+
+    config HM_WEATHER_LAT
+        string "Weather latitude"
+        default "30.8703"
+        help
+            天气查询的纬度，北纬为正数。
+
+    config HM_WEATHER_LON
+        string "Weather longitude"
+        default "120.0933"
+        help
+            天气查询的经度，东经为正数。
+endmenu

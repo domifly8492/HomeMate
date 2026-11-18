@@ -1,0 +1,24 @@
+menu "HomeMate Reminders"
+
+    config HM_REMIND_START_HOUR
+        int "Start hour (0-23)"
+        default 7
+        range 0 23
+        help
+            从几点开始提醒出门物品。
+
+    config HM_REMIND_END_HOUR
+        int "End hour (1-24)"
+        default 10
+        range 1 24
+        help
+            到几点结束，这个钟点本身不算。
+
+    config HM_RULES_TEST_MODE
+        bool "Test mode"
+        default y
+        help
+            测试模式：忽略时间窗口，每次触发都提醒，也不记录"今天已提醒"。
+            测完之后记得关掉。
+
+endmenu

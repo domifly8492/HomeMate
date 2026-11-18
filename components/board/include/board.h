@@ -11,16 +11,27 @@
 #define PIN_LCD_CS       10
 #define PIN_LCD_DC       9
 #define PIN_LCD_RST      8
-#define PIN_LCD_BL       14     /* 背光，用 PWM 调亮度 */
+#define PIN_LCD_BL       (-1)   /* 背光直接接 3.3V，不占引脚 */
 
-#define LCD_H_RES        240
-#define LCD_V_RES        320
-#define LCD_SPI_HZ       (40 * 1000 * 1000)
+/* 屏幕原始分辨率是竖屏 240x320，本项目横着用 */
+#define LCD_NATIVE_W     240
+#define LCD_NATIVE_H     320
+#define LCD_W            320    /* 横屏后的宽 */
+#define LCD_H            240    /* 横屏后的高 */
+
+/* 方向和颜色调节：点亮后如果方向或颜色不对，只改这几个 */
+#define LCD_SWAP_XY      1      /* 横屏必须交换 XY */
+#define LCD_MIRROR_X     0
+#define LCD_MIRROR_Y     1
+#define LCD_INVERT       1      /* ST7789 大多数模块需要反色 */
+#define LCD_BGR          0      /* 红蓝颠倒就改成 1 */
+
+#define LCD_SPI_HZ       (20 * 1000 * 1000)   /* 先用 20MHz，稳定后再提高 */
 
 /* ---------- 喇叭：MAX98357A，I2S ---------- */
-#define PIN_SPK_BCLK     15
-#define PIN_SPK_LRC      16
-#define PIN_SPK_DIN      17
+#define PIN_SPK_BCLK     5
+#define PIN_SPK_LRC      4
+#define PIN_SPK_DIN      6
 #define PIN_SPK_SD       (-1)   /* 功放使能脚，没接就写 -1 */
 
 /* ---------- 麦克风：INMP441，I2S ---------- */
